@@ -17,7 +17,7 @@ namespace MvcPerfTest.Controllers
                 var test = db.Tests.Add(new Test { Start = DateTimeOffset.Now });
                 var rowsAffected = await db.SaveChangesAsync();
                 if (rowsAffected != 1) throw new ApplicationException("The test could not be created successfully");
-                return RedirectToAction("Page1");
+                return RedirectToAction(MVC.Tests.Page1(test.Id));
             }
 
             return View();

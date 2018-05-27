@@ -162,6 +162,15 @@
     <Compile Include="HomeController.generated.cs">
       <DependentUpon>T4MVC.tt</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201805260328464_InitialCreate.cs" />
+    <Compile Include="Migrations\201805260328464_InitialCreate.Designer.cs">
+      <DependentUpon>201805260328464_InitialCreate.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201805271932559_Initial.cs" />
+    <Compile Include="Migrations\201805271932559_Initial.Designer.cs">
+      <DependentUpon>201805271932559_Initial.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\Page2Model.cs" />
     <Compile Include="Models\Page5Model.cs" />
     <Compile Include="Models\Page4Model.cs" />
@@ -246,6 +255,14 @@
   </ItemGroup>
   <ItemGroup>
     <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Migrations\201805260328464_InitialCreate.resx">
+      <DependentUpon>201805260328464_InitialCreate.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201805271932559_Initial.resx">
+      <DependentUpon>201805271932559_Initial.cs</DependentUpon>
+    </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
