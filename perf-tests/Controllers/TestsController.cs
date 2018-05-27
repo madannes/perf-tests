@@ -5,7 +5,7 @@ using System.Web.Mvc;
 
 namespace MvcPerfTest.Controllers
 {
-    public class TestController : Controller
+    public class TestsController : Controller
     {
         private EfModel db = new EfModel();
 
