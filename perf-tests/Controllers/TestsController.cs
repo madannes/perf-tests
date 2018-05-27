@@ -5,12 +5,12 @@ using System.Web.Mvc;
 
 namespace MvcPerfTest.Controllers
 {
-    public class TestsController : Controller
+    public partial class TestsController : Controller
     {
         private EfModel db = new EfModel();
 
         [HttpPost, ValidateAntiForgeryToken]
-        public async Task<ActionResult> BeginTest()
+        public virtual async Task<ActionResult> BeginTest()
         {
             if (ModelState.IsValid)
             {
@@ -23,7 +23,7 @@ namespace MvcPerfTest.Controllers
             return View();
         }
 
-        public async Task<ActionResult> Page1(int? id)
+        public virtual async Task<ActionResult> Page1(int? id)
         {
             var model = id != null ? await db.Page1Models.FindAsync(id) : new Page1Model { };
             if (model == null) return HttpNotFound();
@@ -31,7 +31,7 @@ namespace MvcPerfTest.Controllers
         }
 
         [HttpPost, ValidateAntiForgeryToken]
-        public async Task<ActionResult> Page1(Page1Model model)
+        public virtual async Task<ActionResult> Page1(Page1Model model)
         {
             if (ModelState.IsValid)
             {
