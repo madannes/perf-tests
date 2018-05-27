@@ -9,6 +9,11 @@ namespace MvcPerfTest.Controllers
     {
         private EfModel db = new EfModel();
 
+        public virtual async Task<ActionResult> Index()
+        {
+            return View(await db.Tests.ToArrayAsync());
+        }
+
         [HttpPost, ValidateAntiForgeryToken]
         public virtual async Task<ActionResult> BeginTest()
         {

@@ -1,0 +1,23 @@
+﻿@model IEnumerable<MvcPerfTest.Test>
+@{
+    ViewBag.Title = "Tests";
+}
+
+<h1>@ViewBag.Title</h1>
+
+<table class="table table-striped">
+    <tr>
+        <th>Id</th>
+        <th>Start</th>
+        <th>End</th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>@Html.ActionLink("Test #" + item.Id, MVC.Tests.Page1(item.Id))</td>
+        <td>@Html.DisplayFor(modelItem => item.Start)</td>
+        <td>@Html.DisplayFor(modelItem => item.End)</td>
+    </tr>
+}
+
+</table>
