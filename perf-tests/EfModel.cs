@@ -6,6 +6,7 @@ namespace MvcPerfTest
     {
         public EfModel() : base("name=EfModel") { }
 
+        public virtual DbSet<Test> Tests { get; set; }
         public virtual DbSet<Page1Model> Page1Models { get; set; }
         public virtual DbSet<Page2Model> Page2Models { get; set; }
         public virtual DbSet<Page3Model> Page3Models { get; set; }

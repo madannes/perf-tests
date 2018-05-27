@@ -3,11 +3,14 @@
 }
 
 <div class="jumbotron">
-    <h1>ASP.NET MVC 5 perf test scaffolded w/ EF 6</h1>
+    <h1>
+        ASP.NET MVC 5 perf test
+        <small>scaffolded w/ EF 6</small>
+    </h1>
 </div>
 
-@Html.BeginForm()
+@using (Html.BeginForm("BeginTest", "Tests"))
 {
-@Html.AntiForgeryToken()
-
+    @Html.AntiForgeryToken()
+    <button type="submit" class="btn btn-primary">Begin Test</button>
 }

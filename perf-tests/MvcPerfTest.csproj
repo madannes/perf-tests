@@ -161,6 +161,7 @@
     <Compile Include="Models\Page4Model.cs" />
     <Compile Include="Models\Page3Model.cs" />
     <Compile Include="Models\Page1Model.cs" />
+    <Compile Include="Models\Test.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>

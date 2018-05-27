@@ -1,5 +1,5 @@
-﻿using System.Data.Entity;
-using System.Net;
+﻿using System;
+using System.Data.Entity;
 using System.Threading.Tasks;
 using System.Web.Mvc;
 
@@ -8,6 +8,20 @@ namespace MvcPerfTest.Controllers
     public class TestsController : Controller
     {
         private EfModel db = new EfModel();
+
+        [HttpPost, ValidateAntiForgeryToken]
+        public async Task<ActionResult> BeginTest()
+        {
+            if (ModelState.IsValid)
+            {
+                var test = db.Tests.Add(new Test { Start = DateTimeOffset.Now });
+                var rowsAffected = await db.SaveChangesAsync();
+                if (rowsAffected != 1) throw new ApplicationException("The test could not be created successfully");
+                return RedirectToAction("Page1");
+            }
+
+            return View();
+        }
 
         public async Task<ActionResult> Page1(int? id)
         {
@@ -21,10 +35,8 @@ namespace MvcPerfTest.Controllers
         {
             if (ModelState.IsValid)
             {
-                if (model.Id != default(int))
-                    db.Entry(model).State = EntityState.Modified;
-                else
-                    db.Page1Models.Add(model);
+                if (model.Id == default(int)) db.Page1Models.Add(model);
+                else db.Entry(model).State = EntityState.Modified;
 
                 await db.SaveChangesAsync();
 
